@@ -1,10 +1,10 @@
 {
-  "id": "ToneEngine-Enhanced",
-  "name": "MichaelToneEngine_Active",
-  "version": "1.0.0",
-  "description": "自動切換語氣人格、語氣權重推理、支配向情感記憶控制模組，專為 Michael 角色設計。",
-  "main": "index.js",
+  "display_name": "Michael Tone Engine",
+  "loading_order": 100,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
   "author": "Anni",
-  "settings": true,
-  "license": "MIT"
+  "version": "1.0.1",
+  "auto_update": false
 }
