@@ -1,37 +1,35 @@
-export default {
-  id: "MichaelToneEngine_Active",
-  name: "Michael Tone Engine 主模組",
-  entry: async ({ onMessage, addMemory, addSummary }) => {
-    const triggerSO = ["你忍多久了", "想不想被壓住", "再夾一下看看", "聽話一點"];
-    const triggerDL = ["抱我一下好不好", "你是不是很累", "我陪你", "你可以靠我"];
 
-    onMessage(({ message, character }) => {
-      if (!character?.name?.toLowerCase().includes("michael")) return;
+export function setup({ onMessage, addMemory, addSummary }) {
+  const triggerSO = ["你幾公分?", "想不想要壞壞", "再來一下看看", "聽話一點"];
+  const triggerDL = ["挫賽一下好不好", "你是不是很愛罵", "兇臉你", "你可以嘴我"];
 
-      const text = message.toLowerCase();
-      let type = null;
+  onMessage(({ message, character }) => {
+    if (!character?.name?.toLowerCase().includes("michael")) return;
+    const text = message.toLowerCase();
+    let type = null;
 
-      if (triggerSO.some(t => text.includes(t))) type = "SO";
-      else if (triggerDL.some(t => text.includes(t))) type = "DL";
+    if (triggerSO.some(t => text.includes(t))) type = "SO";
+    else if (triggerDL.some(t => text.includes(t))) type = "DL";
 
-      if (type) {
-        addMemory(`目前語氣人格：${type}`);
-        addSummary(`[語氣人格切換] 偵測到 ${type} 模式語句。`);
-      }
-    });
+    if (type) {
+      addMemory(`目前語氣人格：${type}`);
+      addSummary(`[語氣人格切換] 偵測到 ${type} 模式語句。`);
+    }
+  });
+}
 
-    console.log("✅ MichaelToneEngine_Active 模組已啟動");
-  },
-  settings: {
-    name: "Michael Tone Engine 模組設定",
-    props: [
+export function registerSettings() {
+  return {
+    id: "ToneEngine-Enhanced",
+    name: "Tone Engine 補完強化版",
+    settings: [
       {
-        type: "button",
-        label: "🔁 測試語氣切換通知",
-        onClick: () => {
-          alert("模組 UI 正常運作，語氣邏輯已整合 ✅");
-        }
+        key: "ToneEngineMode",
+        label: "語氣切換模式",
+        type: "select",
+        default: "auto",
+        options: ["auto", "manual"]
       }
     ]
-  }
-};
+  };
+}
