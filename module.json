@@ -1,0 +1,8 @@
+{
+  "name": "MichaelToneEngine_Active",
+  "description": "自動切換語氣人格＋信號詞感知＋記憶摘要處理模組。限定 Michael 使用。",
+  "version": "1.0.1",
+  "main": "index.js",
+  "author": "Anni",
+  "license": "MIT"
+}
