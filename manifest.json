@@ -5,6 +5,6 @@
   "description": "自動切換語氣人格、語氣權重推理、支配向情感記憶控制模組，專為 Michael 角色設計。",
   "main": "index.js",
   "author": "Anni",
-  "settings": true
+  "settings": true,
   "license": "MIT"
 }
