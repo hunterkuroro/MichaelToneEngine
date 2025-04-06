@@ -29,6 +29,7 @@ export function registerSettings() {
         type: "select",
         default: "auto",
         options: ["auto", "manual"]
+        export const settings = registerSettings();
       }
     ]
   };
